@@ -1,0 +1,56 @@
+PRODIGY_CS_01
+Create a python program that can encrypt and decrypt text using the caesar cipher algorithm allow users 
+to input a message and a shift value to perform encryption and decryption
+
+
+
+
+# Get input from the user
+text = input("Enter the plain text: ")
+key = int(input("Enter the key: "))
+
+# Create a result string
+result = ""
+
+# Traverse the text
+for char in text:
+    if char.isalpha():  # Check if the character is a letter
+      
+        normalized = ord(char.lower()) - ord('a')
+       
+        shifted = (normalized + key) % 26
+       
+        if char.isupper():
+            result += chr(shifted + ord('A'))
+        else:
+            result += chr(shifted + ord('a'))
+    else:
+        result += char
+
+
+print("Encrypted Text:", result)
+
+# Description Code
+
+text = input("Enter the encrypted text: ")  
+key = int(input("Enter the key (shift value): "))  
+
+
+result = ""
+
+for char in text:
+    if char.isalpha():  
+ 
+        normalized = ord(char.lower()) - ord('a') 
+        
+        shifted = (normalized - key) % 26  
+       
+        if char.isupper():
+            result += chr(shifted + ord('A'))  
+        else:
+            result += chr(shifted + ord('a'))  
+    else:
+        result += char 
+
+
+print("Decrypted Text:", result)
